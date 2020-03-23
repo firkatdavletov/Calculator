@@ -1,33 +1,33 @@
 /*****************************
-Ћбработчик ввода/вывода данных
+РћР±СЂР°Р±РѕС‚РєР° РІРІРѕРґР°/РІС‹РІРѕРґР° РґР°РЅРЅС‹С…
 *****************************/
 
 import java.util.Scanner;
 
 public class Console
 {
-    public static Boolean numbersIsInt = false; //объЯвление маркера типа данных: Ђрабские числа, либо ђимские
+    public static Boolean numbersIsInt = false; //РјР°СЂРєРµСЂ Р°СЂР°Р±СЃРєРёС… С†РёС„СЂ
     
-    public static void read() //метод обработки вводных данных
+    public static void read() //РјРµС‚РѕРґ СЃС‡РёС‚С‹РІР°РЅРёСЏ РґР°РЅРЅС‹С… СЃ РєРѕРЅСЃРѕР»Рё
     {
         Scanner console = new Scanner(System.in);
-        String input = console.nextLine().trim(); //распознование строки, введенной в консоли
-        String[] inputElements = input.split(" "); //создание массива строк данных
+        String input = console.nextLine().trim(); 
+        String[] inputElements = input.split(" "); //СЃРѕР·РґР°РµРј РјР°СЃСЃРёРІ СЃС‚СЂРѕРє СЃ РѕРїРµСЂР°РЅРґР°РјРё Рё РѕРїРµСЂР°С‚РѕСЂРѕРј
         
         
         try 
         {
-            String strA = inputElements[0]; //первый элемент массива строк - первый операнд
-            String strB = inputElements[2]; //третий элемент массива строк - второй операнд
-            String strOp = inputElements[1]; //второй элемент массива строк - оператор мат.выражениЯ
+            String strA = inputElements[0];
+            String strB = inputElements[2]; 
+            String strOp = inputElements[1]; 
             
-            Main.operator = strOp.charAt(0); //сохранение оператора
+            Main.operator = strOp.charAt(0); //РїСЂРёСЃРІР°РёРІР°РµРј РѕРїРµСЂР°С‚РѕСЂСѓ СЃРёРјРІРѕР»
             
-            Main.a = Converter.convToInt(strA); //преобразование операндов в целые числа
+            Main.a = Converter.convToInt(strA); //РїСЂРёСЃРІР°РµРј С‡РёСЃР»Р° Р° Рё Р±
             Main.b = Converter.convToInt(strB);
             
             
-            if (numbersIsInt == true) // если числа арабские проверЯем условие: входные числа должны быть больше 0, меньше 10 
+            if (numbersIsInt == true) // РµСЃР»Рё С‡РёСЃР»Р° Р°СЂР°Р±СЃРєРёРµ, РїСЂРѕРІРµСЂСЏРµРј СѓСЃР»РѕРІРёРµ
             {
                 int a = Integer.parseInt(strA);
                 if (a > 0 && a <= 10) Main.a = a;
@@ -40,18 +40,18 @@ public class Console
             
             
         } 
-        catch(Exception e) //выбрасываем исключение в случае неверного ввода
+        catch(Exception e) //РІ СЃР»СѓС‡Р°Рµ РѕС€РёР±РєРё РІРІРѕРґР° РІС‹Р±СЂР°СЃС‹РІР°РµРј РёСЃРєР»СЋС‡РµРЅРёРµ
         {
-            System.out.println("Ћшибка ввода: введите формулу в виде a + b");
+            System.out.println("РћС€РёР±РєР° РІРІРѕРґР°: РІС‹СЂР°Р¶РµРЅРёРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ С„РѕСЂРјР°С‚Рµ a + b");
             System.out.println("0 < (a, b) < 10; a, b - integer");
-            System.out.println("ЉалькулЯтор умеет работать только с арабскими или римскими цифрами одновременно");
+            System.out.println("Р§РёСЃР»Р° РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ Р»РёР±Рѕ СЂРёРјСЃРєРёРјРё, Р»РёР±Рѕ Р°СЂР°Р±СЃРєРёРјРё");
         } 
         
     }
     
-    public static void output() //метод вывода результата
+    public static void output() //РјРµС‚РѕРґ РІС‹РІРѕРґР° РґР°РЅРЅС‹С…
     {
-        if (numbersIsInt == false) // если цифры ђимские, сначала преобразуем результат в ђимские цифры
+        if (numbersIsInt == false) // РµСЃР»Рё РЅР° РІРІРѕРґРµ Р±С‹Р»Рё СЂРёРјСЃРєРёРµ С†РёС„СЂС‹, СЂРµР·СѓР»СЊС‚Р°С‚ С‚РѕР¶Рµ РїСЂРµРѕР±СЂР°Р·СѓРµРј РІ СЂРёРјСЃРєРёРµ С†РёС„СЂС‹
         
         {   
             int resultInt = (int)Calculator.result;
